@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <title>Add User</title>
+</head>
+<body class="container">
+
+<form method="post" action="/user">
+    <div class="form-group">
+        <label>Username
+            <input type="text" th:value="${username ?: ''}" name="username" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Password
+            <input type="password" name="password" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Verify Password
+            <input type="password" name="verify" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Email
+            <input type="email" th:value="${email ?: ''}" name="email" class="form-control">
+        </label>
+    </div>
+    <div th:if="${error == true}">
+        Passwords do not match
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>
